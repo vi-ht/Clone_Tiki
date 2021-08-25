@@ -1,18 +1,18 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {ScrollView, StatusBar, View} from 'react-native';
-import {HeaderComponent} from '../components/headerComponent';
-import {BodyComponent} from '../components/bodyComponent';
+import {HomeComponent} from '../components/HomeComponent';
+import {createStackNavigator} from '@react-navigation/stack';
+import SearchScreen from './SearchScreen';
+
+const Stack = createStackNavigator();
+
 const HomeScreen = () => {
-    return (
-      <View>
-        <ScrollView>
-          <StatusBar barStyle="light-content" />
-          <HeaderComponent />
-          <BodyComponent />
-        </ScrollView>
-      </View>
-    );
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="HomeComponent" component={HomeComponent} />
+      <Stack.Screen name="SearchComponent" component={SearchScreen} />
+    </Stack.Navigator>
+  );
 };
 
 export default HomeScreen;

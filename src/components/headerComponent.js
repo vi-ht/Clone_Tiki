@@ -1,50 +1,48 @@
 /* eslint-disable prettier/prettier */
-import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {faShoppingCart} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
-export const HeaderComponent = (props) => {
-    return (
-        <View>
-            <View style={styles.headerContainer}>
-                <View style={styles.inputContainer}>
-                    <FontAwesomeIcon icon={faSearch} size={24} color="#969696"/>
-                    <Text style={styles.inputText}>Bạn tìm gì hôm nay</Text>
-                </View>
-                <View style={styles.cartContainer}>
-                    <FontAwesomeIcon icon={faShoppingCart} size={24} color="#fff"/>
-                </View>
-            </View>
-        </View>
-    );
+const width = Dimensions.get('window').width;
+
+const Header = ({title}) => {
+  return (
+    <View style={styles.headerContainer}>
+      <Text style={styles.headerText}> {title} </Text>
+      <View style={StyleSheet.cartContainer}>
+        <FontAwesomeIcon
+          icon={faShoppingCart}
+          size={HEADER_ICON_SIZE}
+          color="#fff"
+          style={{paddingLeft: width / 1.6, top: 4}}
+        />
+      </View>
+    </View>
+  );
 };
 
-const styles = StyleSheet.create({
-    headerContainer: {
-        flexDirection: 'row',
-        paddingTop: 30,
-        paddingBottom: 4,
-        backgroundColor: '#1e88e5',
-    },
-    inputContainer: {
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        flex: 1,
-        marginLeft: 10,
-        alignItems: 'center',
-        marginBottom: 4,
-    },
-    inputText: {
-        color: '#969696',
-        fontSize: 14,
-        marginLeft: 8,
-        fontWeight: '500',
-    },
-    cartContainer: {
-        paddingHorizontal: 20,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
+export default Header;
 
+const HEADER_ICON_SIZE = 26;
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    flexDirection: 'row',
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: '#1e88e5',
+    justifyContent: 'center',
+    paddingLeft: 80,
+  },
+  cartContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  headerText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: '500',
+    paddingLeft: width / 2.7,
+  },
+});

@@ -3,7 +3,7 @@ import { faUser, faAngleRight, faList, faCartArrowDown, faEye, faHeart, faBookma
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React from 'react';
 import { StatusBar, Text, View, StyleSheet } from 'react-native';
-import Header from '../components/Header';
+import Header from '../components/HeaderComponent';
 
 const ProfileItem = ({ icon, name }) => (
     <View style={styles.itemContainer}>

@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, StyleSheet, StatusBar, Text} from 'react-native';
-import Header from '../components/Header';
+import Header from '../components/HeaderComponent';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
   faHome,
