@@ -12,7 +12,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faSearch, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 import {FlatList} from 'react-native-gesture-handler';
-import styles from './HomeStyles';
+import styles from '../styles/home';
 
 const section_banner = require('../asserts/Banner.png');
 
@@ -70,10 +70,6 @@ export const HomeComponent = ({navigation}) => {
         <StatusBar barStyle="light-content" />
         {/* Header */}
         <View style={styles.headerContainer}>
-        {/* <TouchableOpacity
-          style={styles.backContainer, {marginLeft: -5}}>
-            <FontAwesomeIcon icon={faArrowLeft} size={24} color="#1e88e5" />
-          </TouchableOpacity> */}
           <View style={styles.inputContainer}>
             <FontAwesomeIcon icon={faSearch} size={24} color="#969696" />
             <TextInput

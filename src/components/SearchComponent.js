@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import styles from '../components/HomeStyles';
+import styles from '../styles/home';
 import {TextInput} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
@@ -15,10 +15,10 @@ import {
   faSearch,
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
-import {ProductItem} from '../components/HomeComponent';
+import {ProductItem} from './HomeComponent';
 let apiGetProduct = 'https://ez-json-demo.herokuapp.com/api/product';
 
-const SearchScreen = ({navigation}) => {
+const SearchComponent = ({navigation}) => {
   const [searchValue, setSearchValue] = useState('');
   const [foodsFromServer, setFoodsFromServer] = useState([]);
   const [isLoading, setisLoading] = useState(true);
@@ -58,7 +58,7 @@ const SearchScreen = ({navigation}) => {
           <TouchableOpacity
           style={styles.backContainer}
             onPress={() => {
-              navigation.replace('HomeComponent');
+              navigation.pop();
             }}>
             <FontAwesomeIcon icon={faArrowLeft} size={24} color="#fff" />
           </TouchableOpacity>
@@ -102,4 +102,4 @@ const SearchScreen = ({navigation}) => {
   );
 };
 
-export default SearchScreen;
+export default SearchComponent;
