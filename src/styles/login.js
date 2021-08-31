@@ -37,10 +37,17 @@ const styles = StyleSheet.create({
   },
   inputText: {
     fontSize: 30,
-    color: '#c3c3c3',
-    borderBottomColor: '#eeeeee',
+    color: '#282828',
+    borderBottomColor: '#282828',
     borderBottomWidth: 1,
-    marginBottom: 20,
+    width: width - 40,
+  },
+  invalidInputText: {
+    fontSize: 30,
+    color: '#282828',
+    borderBottomColor: '#f27278',
+    borderBottomWidth: 1,
+    width: width - 40,
   },
   buttonNext: {
     backgroundColor: '#ff424e',
@@ -62,6 +69,11 @@ const styles = StyleSheet.create({
   loginEmailText: {
     color: '#0a5cb8',
     fontSize: 17,
+  },
+  validText: {
+    color: 'red',
+    fontSize: 17,
+    marginBottom: 20,
   },
   //   footer
   footerText1: {
