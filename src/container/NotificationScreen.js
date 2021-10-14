@@ -1,13 +1,9 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, StyleSheet, StatusBar, Text} from 'react-native';
-import Header from '../components/HeaderComponent';
+import Header from '../components/profile/HeaderComponent';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {
-  faHome,
-  faUndo,
-  faDollarSign,
-} from '@fortawesome/free-solid-svg-icons';
+import {faHome, faUndo, faDollarSign} from '@fortawesome/free-solid-svg-icons';
 import {FlatList} from 'react-native-gesture-handler';
 
 const NotificationItem = ({item}) => (
@@ -37,7 +33,7 @@ const NotificationItem = ({item}) => (
   </View>
 );
 
-const NotificateScreen = () => {
+const NotificationScreen = () => {
   return (
     <View style={styles.screenContainer}>
       <StatusBar barStyle="light-content" />
@@ -118,7 +114,7 @@ const NotificateScreen = () => {
   );
 };
 
-export default NotificateScreen;
+export default NotificationScreen;
 
 const styles = StyleSheet.create({
   screenContainer: {

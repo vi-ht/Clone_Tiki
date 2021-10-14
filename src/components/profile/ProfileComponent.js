@@ -3,21 +3,14 @@
 import {
   faUser,
   faAngleRight,
-  faList,
-  faCartArrowDown,
-  faEye,
-  faHeart,
-  faBookmark,
-  faStar,
-  faAward,
-  faCogs,
   faQuestion,
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React from 'react';
 import {StatusBar, Text, View, TouchableOpacity} from 'react-native';
-import Header from '../components/HeaderComponent';
-import styles from '../styles/profile';
+import Header from './HeaderComponent';
+import styles from '../../styles/profile/profile';
+import {dataFirst, dataSecond} from '../../assets/data/Profile';
 
 const ProfileItem = ({icon, name}) => (
   <View style={styles.itemContainer}>
@@ -48,16 +41,13 @@ const ProfileComponent = ({navigation}) => {
           </View>
           <FontAwesomeIcon icon={faAngleRight} size={26} color="#1e88e5" />
         </View>
+        {dataFirst.map((e, index) => (
+          <ProfileItem key={index} icon={e.icon} name={e.name} />
+        ))}
         <View style={styles.divider} />
-        <ProfileItem icon={faList} name="Quản lý đơn hàng" />
-        <ProfileItem icon={faCartArrowDown} name="Sản phẩm đã mua" />
-        <ProfileItem icon={faEye} name="Sản phẩm đã xem" />
-        <ProfileItem icon={faHeart} name="Sản phẩm yêu thích" />
-        <ProfileItem icon={faBookmark} name="Sản phẩm mua sau" />
-        <ProfileItem icon={faStar} name="Sản phẩm đánh giá" />
-        <View style={styles.divider} />
-        <ProfileItem icon={faAward} name="Ưu đãi cho chủ thẻ ngân hàng" />
-        <ProfileItem icon={faCogs} name="Cài đặt" />
+        {dataSecond.map((e, index) => (
+          <ProfileItem key={index} icon={e.icon} name={e.name} />
+        ))}
         <View style={styles.divider} />
         <ProfileItem icon={faQuestion} name="Hỗ trợ" />
       </View>

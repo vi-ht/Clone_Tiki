@@ -3,7 +3,7 @@
 import React from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {useState} from 'react/cjs/react.development';
-import styles from '../styles/regis';
+import styles from '../../styles/registration/regis';
 
 const apiUsers = 'https://ez-json-demo.herokuapp.com/api/users';
 

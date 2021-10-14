@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
-import styles from '../styles/password';
+import styles from '../../styles/confirm_login/password';
 
 const apiUsers = 'https://ez-json-demo.herokuapp.com/api/users';
 
-const PasswordComponent = ({navigation, route}) => {
+const ConfirmPasswordComponent = ({navigation, route}) => {
   const [password, setPassword] = useState('');
   const [checkPass, setCheckPass] = useState(false);
   const [emptyPass, setEmptyPass] = useState(false);
@@ -81,4 +81,4 @@ const PasswordComponent = ({navigation, route}) => {
   );
 };
 
-export default PasswordComponent;
+export default ConfirmPasswordComponent;

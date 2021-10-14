@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {HomeComponent} from '../components/HomeComponent';
+import {HomeComponent} from '../components/home/index';
 import {createStackNavigator} from '@react-navigation/stack';
-import SearchComponent from '../components/SearchComponent';
+import {SearchComponent} from '../components/search/index';
 
 const Stack = createStackNavigator();
 

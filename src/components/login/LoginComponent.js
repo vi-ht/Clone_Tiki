@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -14,9 +14,9 @@ import {
   faGoogle,
   faPaypal,
 } from '@fortawesome/free-brands-svg-icons';
-import styles from '../styles/login';
+import styles from '../../styles/login/login';
+import {apiUsers} from '../../assets/constant/api';
 
-const apiUsers = 'https://ez-json-demo.herokuapp.com/api/users';
 let checkExistAccount = true;
 const getUsers = (phone, {navigation}) => {
   fetch(apiUsers)
@@ -28,12 +28,10 @@ const getUsers = (phone, {navigation}) => {
         }
       });
       if (checkExistAccount === false) {
-        console.log(1 + checkExistAccount);
         navigation.navigate('PasswordComponent', {
           phone: phone,
         });
       } else {
-        console.log(2 + checkExistAccount);
         navigation.navigate('RegisComponent', {
           phone: phone,
         });
@@ -53,7 +51,7 @@ const LoginComponent = ({navigation}) => {
       <StatusBar barStyle="light-content" />
       <View style={styles.headerContainer}>
         <Image
-          source={require('../asserts/HeaderLogin.jpg')}
+          source={require('../../assets/image/HeaderLogin.jpg')}
           style={styles.imageHeader}
         />
       </View>

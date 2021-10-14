@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   TextInput,
@@ -12,28 +12,15 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faSearch, faShoppingCart} from '@fortawesome/free-solid-svg-icons';
 import {FlatList} from 'react-native-gesture-handler';
-import styles from '../styles/home';
+import {stylesHome, stylesItem, stylesFilter} from '../../styles/home/index';
+import renderItem from './ProductItem';
+import section_banner from '../../assets/image/Banner.png';
+import { apiGetProduct } from '../../assets/constant/api';
 
-const section_banner = require('../asserts/Banner.png');
-
-
-export const ProductItem = ({image, name, price}) => {
-  return (
-    <View style={styles.itemContainer}>
-      <Image source={image} style={styles.itemImage} />
-      <Text style={styles.itemName} numberOfLines={2}>
-        {name}
-      </Text>
-      <Text style={styles.itemPrice}>{price}</Text>
-    </View>
-  );
-};
-
-export const HomeComponent = ({navigation}) => {
+const HomeComponent = ({navigation}) => {
   const [foodsFromServer, setFoodsFromServer] = useState([]);
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [searchValue, setSearchValue] = useState('');
-  const apiGetProduct = 'https://ez-json-demo.herokuapp.com/api/product';
 
   useEffect(() => {
     getProduct();
@@ -49,51 +36,38 @@ export const HomeComponent = ({navigation}) => {
       .catch(error => {
         console.log('Error: ', error);
       })
-      .finally(() => setisLoading(false));
+      .finally(() => setIsLoading(false));
   };
-
-  let renderItem = ({item, index}) => {
-    return (
-      <View>
-        <ProductItem
-          name={item.name}
-          image={{uri: item.thumbnailUrl}}
-          price={item.price + '$'}
-        />
-      </View>
-    );
-  };
-
   return (
     <View>
       <ScrollView>
         <StatusBar barStyle="light-content" />
         {/* Header */}
-        <View style={styles.headerContainer}>
-          <View style={styles.inputContainer}>
+        <View style={stylesHome.default.headerContainer}>
+          <View style={stylesHome.default.inputContainer}>
             <FontAwesomeIcon icon={faSearch} size={24} color="#969696" />
             <TextInput
               multiline
               onChangeText={text => setSearchValue(text)}
               value={searchValue}
-              style={styles.inputText}
+              style={stylesHome.default.inputText}
               placeholder="Bạn tìm gì hôm nay"
               onPressIn={() => {
                 navigation.navigate('SearchComponent');
               }}
             />
           </View>
-          <View style={styles.cartContainer}>
-              <FontAwesomeIcon icon={faShoppingCart} size={24} color="#fff" />
-            </View>
+          <View style={stylesHome.default.cartContainer}>
+            <FontAwesomeIcon icon={faShoppingCart} size={24} color="#fff" />
+          </View>
         </View>
         {/* Body */}
-        <View style={styles.bodyContainer}>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Điện thoại - Máy Tính</Text>
-            <Image source={section_banner} style={styles.sectionImage} />
+        <View style={stylesHome.default.bodyContainer}>
+          <View style={stylesHome.default.sectionContainer}>
+            <Text style={stylesHome.default.sectionTitle}>Điện thoại - Máy Tính</Text>
+            <Image source={section_banner} style={stylesHome.default.sectionImage} />
             <ScrollView horizontal={true}>
-              <View style={styles.filterContainer}>
+              <View style={stylesFilter.default.filterContainer}>
                 {[
                   'Tất cả',
                   'Điện thoại SmartPhone',
@@ -104,14 +78,14 @@ export const HomeComponent = ({navigation}) => {
                     key={index.toString()}
                     style={
                       index === 0
-                        ? styles.filterActiveButtonContainer
-                        : styles.filterInactiveButtonContainer
+                        ? stylesFilter.default.filterActiveButtonContainer
+                        : stylesFilter.default.filterInactiveButtonContainer
                     }>
                     <Text
                       style={
                         index === 0
-                          ? styles.filterActiveText
-                          : styles.filterInactiveText
+                          ? stylesFilter.default.filterActiveText
+                          : stylesFilter.default.filterInactiveText
                       }>
                       {e}
                     </Text>
@@ -122,7 +96,7 @@ export const HomeComponent = ({navigation}) => {
             {isLoading ? (
               <ActivityIndicator />
             ) : (
-              <View style={styles.listItemContainer}>
+              <View style={stylesItem.default.listItemContainer}>
                 <FlatList
                   horizontal={true}
                   data={foodsFromServer}
@@ -131,8 +105,8 @@ export const HomeComponent = ({navigation}) => {
                 />
               </View>
             )}
-            <View style={styles.seeMoreContainer}>
-              <Text style={styles.seeMoreText}>Xem thêm 500 Sản Phẩm</Text>
+            <View style={stylesHome.default.seeMoreContainer}>
+              <Text style={stylesHome.default.seeMoreText}>Xem thêm 500 Sản Phẩm</Text>
             </View>
           </View>
         </View>
@@ -140,3 +114,5 @@ export const HomeComponent = ({navigation}) => {
     </View>
   );
 };
+
+export default HomeComponent;

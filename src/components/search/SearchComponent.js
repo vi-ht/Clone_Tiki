@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import styles from '../styles/home';
+import {stylesHome, stylesItem} from '../../styles/home/index';
 import {TextInput} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
@@ -15,13 +15,13 @@ import {
   faSearch,
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
-import {ProductItem} from './HomeComponent';
+import {ProductItem} from '../home/HomeComponent';
 let apiGetProduct = 'https://ez-json-demo.herokuapp.com/api/product';
 
 const SearchComponent = ({navigation}) => {
   const [searchValue, setSearchValue] = useState('');
   const [foodsFromServer, setFoodsFromServer] = useState([]);
-  const [isLoading, setisLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getProduct();
@@ -37,7 +37,7 @@ const SearchComponent = ({navigation}) => {
       .catch(error => {
         console.log('Error: ', error);
       })
-      .finally(() => setisLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   let renderItem = ({item, index}) => {
@@ -54,21 +54,21 @@ const SearchComponent = ({navigation}) => {
   return (
     <View>
       <ScrollView>
-        <View style={styles.headerContainer}>
+        <View style={stylesHome.default.headerContainer}>
           <TouchableOpacity
-          style={styles.backContainer}
+          style={stylesHome.default.backContainer}
             onPress={() => {
               navigation.pop();
             }}>
             <FontAwesomeIcon icon={faArrowLeft} size={24} color="#fff" />
           </TouchableOpacity>
-          <View style={styles.inputContainer}>
+          <View style={stylesHome.default.inputContainer}>
             <FontAwesomeIcon icon={faSearch} size={24} color="#969696" />
             <TextInput
               multiline
               onChangeText={text => setSearchValue(text)}
               value={searchValue}
-              style={styles.inputText}
+              style={stylesHome.default.inputText}
               placeholder="Bạn tìm gì hôm nay"
               onKeyPress={() => {
                 let searchString = '?name_like=' + searchValue;
@@ -76,16 +76,16 @@ const SearchComponent = ({navigation}) => {
               }}
             />
           </View>
-          <View style={styles.cartContainer}>
+          <View style={stylesHome.default.cartContainer}>
               <FontAwesomeIcon icon={faShoppingCart} size={24} color="#fff" />
             </View>
         </View>
-        <View style={styles.bodyContainer}>
-          <View style={styles.sectionContainer}>
+        <View style={stylesHome.default.bodyContainer}>
+          <View style={stylesHome.default.sectionContainer}>
             {isLoading ? (
               <ActivityIndicator />
             ) : (
-              <View style={styles.listItemContainer}>
+              <View style={stylesItem.default.listItemContainer}>
                 <FlatList
                   horizontal={true}
                   data={foodsFromServer}
