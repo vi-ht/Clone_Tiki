@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "738278361557",
+    "project_id": "prm-project-c1964",
+    "storage_bucket": "prm-project-c1964.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738278361557:android:72e7936f02b8835a79955c",
+        "android_client_info": {
+          "package_name": "com.clone_tiki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738278361557-ufluki4gtrsvt50l074099h72jrctb8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.clone_tiki",
+            "certificate_hash": "dd6576e987e046cff558aa6c3043681a68c5c78a"
+          }
+        },
+        {
+          "client_id": "738278361557-7s01ai9dat52v2laukf05psr29m4u7bs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw-bm9u_Iz9JlRhl6jbVqi3esKnGOTinI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738278361557-7s01ai9dat52v2laukf05psr29m4u7bs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
