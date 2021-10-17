@@ -14,6 +14,10 @@ const ProfileScreen = () => {
         <Stack.Screen name="LoginComponent" component={LoginComponent} />
         <Stack.Screen name="PasswordComponent" component={ConfirmPasswordComponent} />
         <Stack.Screen name="RegisComponent" component={RegisComponent} />
+<<<<<<< Updated upstream
+=======
+        <Stack.Screen name="AfterLoginComponent" component={ProfileComponent} />
+>>>>>>> Stashed changes
       </Stack.Navigator>
     );
   };
