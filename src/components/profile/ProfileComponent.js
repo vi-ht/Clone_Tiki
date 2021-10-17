@@ -68,7 +68,6 @@ const ProfileComponent = ({ navigation }) => {
                      </View>
                   )
             }
-
             {dataFirst.map((e, index) => (
                <ProfileItem key={index} icon={e.icon} name={e.name} />
             ))}
@@ -77,15 +76,18 @@ const ProfileComponent = ({ navigation }) => {
                <ProfileItem key={index} icon={e.icon} name={e.name} />
             ))}
             <View style={styles.divider} />
-            <View>
-               <TouchableOpacity
-                  onPress={() => {
-                     setUserGoogleInfo(null);
-                  }}
-               >
-                  <ProfileItem icon={faSignOutAlt} name="Đăng xuất" />
-               </TouchableOpacity>
-            </View>
+            {(userGoogleInfo !== null) ?
+               (
+                  <View>
+                     <TouchableOpacity
+                        onPress={() => {
+                           setUserGoogleInfo(null);
+                        }}
+                     >
+                        <ProfileItem icon={faSignOutAlt} name="Đăng xuất" />
+                     </TouchableOpacity>
+                  </View>
+               ) : null}
          </View>
       </View>
    );
