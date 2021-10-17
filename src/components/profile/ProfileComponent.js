@@ -4,9 +4,10 @@ import {
    faUser,
    faAngleRight,
    faQuestion,
+   faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar, Text, View, TouchableOpacity } from 'react-native';
 import Header from './HeaderComponent';
 import styles from '../../styles/profile/profile';
@@ -21,20 +22,15 @@ const ProfileItem = ({ icon, name }) => (
    </View>
 );
 
-const ProfileComponent = ({ navigation, route }) => {
-   if (route.params !== undefined) {
-      console.log(route.params.props.additionalUserInfo.profile.email);
-      console.log(route.params.props.additionalUserInfo.profile.name);
-      console.log(route.params.props.additionalUserInfo.profile.picture);
-   }
-
+const ProfileComponent = ({ navigation }) => {
+   const [userGoogleInfo, setUserGoogleInfo] = useState(null);
    return (
       <View style={styles.screenContainer}>
          <StatusBar barStyle="light-content" />
          <Header title="Cá nhân" />
          <View style={styles.bodyContainer}>
             {
-               (route.params === undefined) ?
+               (userGoogleInfo === null) ?
                   (
                      <View style={styles.userContainer}>
                         <View style={styles.avatarContainer}>
@@ -44,7 +40,9 @@ const ProfileComponent = ({ navigation, route }) => {
                            <Text style={styles.welcomeText}>Chào mừng bạn đến với Tiki</Text>
                            <TouchableOpacity
                               onPress={() => {
-                                 navigation.navigate('LoginComponent');
+                                 navigation.navigate('LoginComponent', {
+                                    returnData: (item) => setUserGoogleInfo(item),
+                                 });
                               }}>
                               <Text style={styles.authText}>Đăng nhập/ Đăng ký</Text>
                            </TouchableOpacity>
@@ -60,11 +58,11 @@ const ProfileComponent = ({ navigation, route }) => {
                               rounded
                               size="medium"
                               source={{
-                                 uri: route.params.props.additionalUserInfo.profile.picture,
+                                 uri: userGoogleInfo.additionalUserInfo.profile.picture,
                               }}
                            />
                            <View style={styles.textContainer}>
-                              <Text style={styles.welcomeText}>Chào mừng, {route.params.props.additionalUserInfo.profile.name}</Text>
+                              <Text style={styles.welcomeText}>Chào mừng, {userGoogleInfo.additionalUserInfo.profile.name}</Text>
                            </View>
                         </View>
                      </View>
@@ -79,7 +77,15 @@ const ProfileComponent = ({ navigation, route }) => {
                <ProfileItem key={index} icon={e.icon} name={e.name} />
             ))}
             <View style={styles.divider} />
-            <ProfileItem icon={faQuestion} name="Hỗ trợ" />
+            <View>
+               <TouchableOpacity
+                  onPress={() => {
+                     setUserGoogleInfo(null);
+                  }}
+               >
+                  <ProfileItem icon={faSignOutAlt} name="Đăng xuất" />
+               </TouchableOpacity>
+            </View>
          </View>
       </View>
    );
