@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
+
 import auth from '@react-native-firebase/auth';
 import {
    GoogleSignin,
    GoogleSigninButton,
 } from '@react-native-google-signin/google-signin';
+
 import {
    View,
    Text,
@@ -18,6 +20,8 @@ import styles from '../../styles/login/login';
 const LoginComponent = ({ navigation, route  }) => {
    const [phone, setPhone] = useState('');
    const [validPhone, setValidPhone] = useState(false);
+
+   
    const [userGoogleInfo, setUserGoogleInfo] = useState({});
 
    async function onGoogleButtonPress() {
