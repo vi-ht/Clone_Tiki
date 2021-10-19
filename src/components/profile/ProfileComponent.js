@@ -5,14 +5,14 @@ import {
   faAngleRight,
   faQuestion,
 } from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React from 'react';
-import {StatusBar, Text, View, TouchableOpacity} from 'react-native';
-import Header from './HeaderComponent';
+import { StatusBar, Text, View, TouchableOpacity } from 'react-native';
+import HeaderProfile from './HeaderProfileComponent';
 import styles from '../../styles/profile/profile';
-import {dataFirst, dataSecond} from '../../assets/data/Profile';
+import { dataFirst, dataSecond } from '../../assets/data/Profile';
 
-const ProfileItem = ({icon, name}) => (
+const ProfileItem = ({ icon, name }) => (
   <View style={styles.itemContainer}>
     <FontAwesomeIcon icon={icon} size={26} color="#1e1e1e" />
     <Text style={styles.itemText}>{name}</Text>
@@ -20,15 +20,15 @@ const ProfileItem = ({icon, name}) => (
   </View>
 );
 
-const ProfileComponent = ({navigation}) => {
+const ProfileComponent = ({ navigation }) => {
   return (
     <View style={styles.screenContainer}>
       <StatusBar barStyle="light-content" />
-      <Header title="Cá nhân" />
+      <HeaderProfile title="Cá nhân" />
       <View style={styles.bodyContainer}>
         <View style={styles.userContainer}>
           <View style={styles.avatarContainer}>
-            <FontAwesomeIcon icon={faUser} size={26} color="#fff" />
+            <FontAwesomeIcon icon={faUser} size={26} color='#1e88e5' />
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.welcomeText}>Chào mừng bạn đến với Tiki</Text>
@@ -40,6 +40,20 @@ const ProfileComponent = ({navigation}) => {
             </TouchableOpacity>
           </View>
           <FontAwesomeIcon icon={faAngleRight} size={26} color="#1e88e5" />
+        </View>
+        <View style={styles.container}>
+          <View style={styles.tikiXuContainer}>
+            <View style={styles.icon}>
+
+            </View>
+            <View style={styles.title}>
+            <Text style={styles.titleText}>Tiki Xu</Text>
+            <Text style={styles.titleSmallText}>Tìm thêm</Text>
+            </View>
+          </View>
+          <View style={styles.tikiXuContainer}>
+
+          </View>
         </View>
         {dataFirst.map((e, index) => (
           <ProfileItem key={index} icon={e.icon} name={e.name} />
