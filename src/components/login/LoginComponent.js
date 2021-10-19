@@ -21,9 +21,6 @@ const LoginComponent = ({ navigation, route  }) => {
    const [phone, setPhone] = useState('');
    const [validPhone, setValidPhone] = useState(false);
 
-   
-   const [userGoogleInfo, setUserGoogleInfo] = useState({});
-
    async function onGoogleButtonPress() {
       GoogleSignin.configure({
          webClientId:
@@ -37,8 +34,8 @@ const LoginComponent = ({ navigation, route  }) => {
       await auth()
          .signInWithCredential(googleCredential)
          .then(credential => {
-            console.log('Singin success');
-            setUserGoogleInfo(credential);
+            console.log('Signin success');
+            console.log(credential);
             route.params.returnData(credential);
             navigation.goBack();
          })
