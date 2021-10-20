@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     
   },
   userContainer: {
-    //backgroundColor: '#fff',
-     backgroundColor: '#1e88e5',
+     backgroundColor: '#1A8CFF',
     flexDirection: 'row',
     paddingHorizontal: 20,
     paddingVertical: 22,
@@ -35,11 +34,20 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     color: '#fff',
+    fontSize:21,
   },
   authText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '500',
+    marginTop:5,
+    color: '#1e88e5',
+    fontSize: 16,
+    fontWeight: '700',
+    backgroundColor: '#fff',
+    width:160,
+    paddingTop:5,
+    paddingBottom:5,
+    paddingLeft:9,
+    paddingRight:5,
+    borderRadius:3,
   },
   itemContainer: {
     backgroundColor: '#fff',
@@ -52,9 +60,17 @@ const styles = StyleSheet.create({
     flex: 1,
     color: '#1e1e1e',
     paddingLeft: 20,
+    fontSize:18,
+    fontWeight: '700',
+  },
+  itemTitle: {
+    flex: 1,
+    color: '#1e1e1e',
+    paddingLeft: 20,
+    fontSize:16,
   },
   divider: {
-    height: 10,
+    height: 8,
   },
   tikiXuContainer:{
     height: 70,
@@ -66,14 +82,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   container: {
-    //flex: 10,
     paddingLeft:20,
-    height:80,
+    height:52,
     flexDirection: 'row'
   },
   icon:{
       width:65,
-     // backgroundColor: 'pink',
       marginRight:10,
       marginLeft:5,
   },
@@ -82,15 +96,68 @@ const styles = StyleSheet.create({
     //backgroundColor: 'pink'
   },
   titleText:{
-    // color: '#000',
-    // //fontWeight: 700,
     marginTop: 15,
+    marginLeft: -5,
     fontSize: 16,
+  },
+  iconText:{
+    fontSize: 13,
+    flex: 1,
+    color: '#1e1e1e',
+    textAlign:'center'
   },
   titleSmallText:{
     marginTop: 0,
     fontSize: 14,
-    color: 'gray'
+    color: 'gray',
+    marginLeft: -5,
+  },
+  img:{
+    marginTop:4,
+    marginLeft:1,
+    height:60,
+    width:60,
+  },
+  boxContainer:{
+    flexDirection: 'row',
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom:10,
+    marginBottom:0,
+  },
+  sectionContainer:{
+    backgroundColor:'#fff',
+    height: 150,
+    marginBottom:8,
+  
+  },
+  innerContainer:{
+    height: 30,
+    flexDirection: 'row',
+    marginTop:10,
+    fontSize: 17,
+
+  },
+  iconContainer:{
+    height: 120,
+    width:70,
+    marginRight:15,
+    marginLeft:15,
+    marginBottom:10,
+  },
+  imgIcon:{
+    height:70,
+    width:70,
+  },
+  profileIcon:{
+    height:30,
+    width:30,
+  },
+  itemHistory:{
+    color:'#1e88e5',
+    fontWeight:'700',
+    marginRight: 30,
+    fontSize:16,
   }
 
 });

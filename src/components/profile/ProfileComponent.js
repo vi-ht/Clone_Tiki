@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-
 import {
   faUser,
   faAngleRight,
@@ -7,31 +6,63 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React from 'react';
-import { StatusBar, Text, View, TouchableOpacity } from 'react-native';
+import { StatusBar, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
 import HeaderProfile from './HeaderProfileComponent';
 import styles from '../../styles/profile/profile';
-import { dataFirst, dataSecond } from '../../assets/data/Profile';
+import { dataFirst, dataSecond, dataDonHang, dataQuanTam, dataTienIch } from '../../assets/data/Profile';
+import tikixu from '../../assets/image/debd9ea3df3916674f28.jpg';
+import voucher from '../../assets/image/voucher.jpg';
 
 const ProfileItem = ({ icon, name }) => (
   <View style={styles.itemContainer}>
-    <FontAwesomeIcon icon={icon} size={26} color="#1e1e1e" />
-    <Text style={styles.itemText}>{name}</Text>
-    <FontAwesomeIcon icon={faAngleRight} size={26} color="#1e1e1e" />
+    <Image source={icon} style={styles.profileIcon} />
+    <Text style={styles.itemTitle}>{name}</Text>
+    <FontAwesomeIcon icon={faAngleRight} size={26} color="gray" />
   </View>
+);
+
+const SectionItem = ({ nameLeft, nameRight, list }) => (
+  <View style={styles.sectionContainer}>
+    <View style={styles.innerContainer}>
+      <Text style={styles.itemText}>{nameLeft}</Text>
+      <Text style={styles.itemHistory}>{nameRight}</Text>
+    </View>
+    <View style={styles.boxContainer}>
+      {list.map((e, index) => (
+          <View style={styles.iconContainer}>
+              <Image source={e.iconImg} style={styles.imgIcon} />
+          <Text style={styles.iconText}>{e.name}</Text>
+      </View>
+      ))}
+      </View>
+  </View>
+);
+
+const TopItem = ({ img, title, name }) => (
+  <View style={styles.tikiXuContainer}>
+            <View style={styles.icon}>
+              <Image source={img} style={styles.img} />
+            </View>
+            <View style={styles.title}>
+              <Text style={styles.titleText}>{title}</Text>
+              <Text style={styles.titleSmallText}>{name}</Text>
+            </View>
+          </View>
 );
 
 const ProfileComponent = ({ navigation }) => {
   return (
+    <ScrollView>
     <View style={styles.screenContainer}>
       <StatusBar barStyle="light-content" />
-      <HeaderProfile title="Cá nhân" />
+      <HeaderProfile title="" />
       <View style={styles.bodyContainer}>
         <View style={styles.userContainer}>
           <View style={styles.avatarContainer}>
             <FontAwesomeIcon icon={faUser} size={26} color='#1e88e5' />
           </View>
           <View style={styles.textContainer}>
-            <Text style={styles.welcomeText}>Chào mừng bạn đến với Tiki</Text>
+            <Text style={styles.welcomeText}>Chào mừng bạn đến với Tiki!</Text>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('LoginComponent');
@@ -42,30 +73,45 @@ const ProfileComponent = ({ navigation }) => {
           <FontAwesomeIcon icon={faAngleRight} size={26} color="#1e88e5" />
         </View>
         <View style={styles.container}>
-          <View style={styles.tikiXuContainer}>
-            <View style={styles.icon}>
-
-            </View>
-            <View style={styles.title}>
-            <Text style={styles.titleText}>Tiki Xu</Text>
-            <Text style={styles.titleSmallText}>Tìm thêm</Text>
-            </View>
-          </View>
-          <View style={styles.tikiXuContainer}>
-
-          </View>
+          <TopItem img={tikixu} title="Tiki xu" name="Tìm thêm"/>
+          <TopItem img={voucher} title="Mã giảm giá" name="Tìm thêm"/>
         </View>
+        {dataDonHang.map((e, index) => (
+          <SectionItem 
+          key={index}
+          nameLeft = {e.nameLeft} 
+          nameRight = {e.nameRight}
+          list = {e.iconList}/>
+        ))}
         {dataFirst.map((e, index) => (
-          <ProfileItem key={index} icon={e.icon} name={e.name} />
+          <View><ProfileItem key={index} icon={e.icon} name={e.name} />
+          <View style={styles.divider} />
+          </View>
         ))}
-        <View style={styles.divider} />
+        {dataQuanTam.map((e, index) => (
+          <SectionItem 
+          key={index}
+          nameLeft = {e.nameLeft} 
+          nameRight = {e.nameRight}
+          list = {e.iconList}/>
+          
+        ))}
+        {dataTienIch.map((e, index) => (
+          <SectionItem 
+          key={index}
+          nameLeft = {e.nameLeft} 
+          nameRight = {e.nameRight}
+          list = {e.iconList}/>
+          
+        ))}
         {dataSecond.map((e, index) => (
-          <ProfileItem key={index} icon={e.icon} name={e.name} />
+          <View><ProfileItem key={index} icon={e.icon} name={e.name} />
+          <View style={styles.divider}/>
+          </View>
         ))}
-        <View style={styles.divider} />
-        <ProfileItem icon={faQuestion} name="Hỗ trợ" />
       </View>
     </View>
+    </ScrollView>
   );
 };
 
