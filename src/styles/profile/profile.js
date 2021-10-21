@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   screenContainer: {
@@ -7,18 +7,17 @@ const styles = StyleSheet.create({
   },
   bodyContainer: {
     backgroundColor: '#ededed',
-    
   },
   userContainer: {
-     backgroundColor: '#1A8CFF',
+    backgroundColor: '#1A8CFF',
     flexDirection: 'row',
     paddingHorizontal: 20,
     paddingVertical: 22,
     alignItems: 'center',
     marginTop: -50,
-    paddingBottom:50,
-    borderBottomLeftRadius:35,
-    borderBottomRightRadius:35,
+    paddingBottom: 50,
+    borderBottomLeftRadius: 35,
+    borderBottomRightRadius: 35,
   },
   avatarContainer: {
     width: 50,
@@ -34,20 +33,20 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     color: '#fff',
-    fontSize:21,
+    fontSize: 21,
   },
   authText: {
-    marginTop:5,
+    marginTop: 5,
     color: '#1e88e5',
     fontSize: 16,
     fontWeight: '700',
     backgroundColor: '#fff',
-    width:160,
-    paddingTop:5,
-    paddingBottom:5,
-    paddingLeft:9,
-    paddingRight:5,
-    borderRadius:3,
+    width: 160,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 9,
+    paddingRight: 5,
+    borderRadius: 3,
   },
   itemContainer: {
     backgroundColor: '#fff',
@@ -60,104 +59,110 @@ const styles = StyleSheet.create({
     flex: 1,
     color: '#1e1e1e',
     paddingLeft: 20,
-    fontSize:18,
+    fontSize: 18,
     fontWeight: '700',
   },
   itemTitle: {
     flex: 1,
     color: '#1e1e1e',
     paddingLeft: 20,
-    fontSize:16,
+    fontSize: 16,
   },
   divider: {
     height: 8,
   },
-  tikiXuContainer:{
+  tikiXuContainer: {
     height: 70,
     backgroundColor: '#fff',
     width: 180,
     borderRadius: 15,
-    marginLeft:10,
+    marginLeft: 10,
     marginTop: -30,
     flexDirection: 'row',
   },
   container: {
-    paddingLeft:20,
-    height:52,
+    paddingLeft: 20,
+    height: 52,
     flexDirection: 'row'
   },
-  icon:{
-      width:65,
-      marginRight:10,
-      marginLeft:5,
+  icon: {
+    width: 65,
+    marginRight: 10,
+    marginLeft: 5,
   },
-  title:{
-    width:95,
-    //backgroundColor: 'pink'
+  title: {
+    width: 95,
   },
-  titleText:{
+  titleText: {
     marginTop: 15,
     marginLeft: -5,
     fontSize: 16,
   },
-  iconText:{
+  iconText: {
     fontSize: 13,
     flex: 1,
     color: '#1e1e1e',
-    textAlign:'center'
+    textAlign: 'center'
   },
-  titleSmallText:{
+  titleSmallText: {
     marginTop: 0,
     fontSize: 14,
     color: 'gray',
     marginLeft: -5,
   },
-  img:{
-    marginTop:4,
-    marginLeft:1,
-    height:60,
-    width:60,
+  img: {
+    marginTop: 4,
+    marginLeft: 1,
+    height: 60,
+    width: 60,
   },
-  boxContainer:{
+  boxContainer: {
     flexDirection: 'row',
     paddingLeft: 20,
     paddingRight: 20,
-    paddingBottom:10,
-    marginBottom:0,
+    paddingBottom: 10,
+    marginBottom: 0,
   },
-  sectionContainer:{
-    backgroundColor:'#fff',
+  sectionContainer: {
+    backgroundColor: '#fff',
     height: 150,
-    marginBottom:8,
-  
+    marginBottom: 8,
+
   },
-  innerContainer:{
+  innerContainer: {
     height: 30,
     flexDirection: 'row',
-    marginTop:10,
+    marginTop: 10,
     fontSize: 17,
 
   },
-  iconContainer:{
+  iconContainer: {
     height: 120,
-    width:70,
-    marginRight:15,
-    marginLeft:15,
-    marginBottom:10,
+    width: 70,
+    marginRight: 15,
+    marginLeft: 15,
+    marginBottom: 10,
   },
-  imgIcon:{
-    height:70,
-    width:70,
+  imgIcon: {
+    height: 70,
+    width: 70,
   },
-  profileIcon:{
-    height:30,
-    width:30,
+  profileIcon: {
+    height: 30,
+    width: 30,
   },
-  itemHistory:{
-    color:'#1e88e5',
-    fontWeight:'700',
+  itemHistory: {
+    color: '#1e88e5',
+    fontWeight: '700',
     marginRight: 30,
-    fontSize:16,
+    fontSize: 16,
+  },
+  avatar:{
+    marginTop: 4,
+    marginLeft: 1,
+    height: 65,
+    width: 65,
+    borderRadius:50,
   }
 
 });

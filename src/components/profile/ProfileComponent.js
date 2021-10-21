@@ -1,8 +1,6 @@
 /* eslint-disable prettier/prettier */
 import {
-  faUser,
   faAngleRight,
-  faQuestion,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React from 'react';
@@ -12,6 +10,7 @@ import styles from '../../styles/profile/profile';
 import { dataFirst, dataSecond, dataDonHang, dataQuanTam, dataTienIch } from '../../assets/data/Profile';
 import tikixu from '../../assets/image/debd9ea3df3916674f28.jpg';
 import voucher from '../../assets/image/voucher.jpg';
+import myAvatar from '../../assets/image/vi.jpg';
 
 const ProfileItem = ({ icon, name }) => (
   <View style={styles.itemContainer}>
@@ -59,15 +58,15 @@ const ProfileComponent = ({ navigation }) => {
       <View style={styles.bodyContainer}>
         <View style={styles.userContainer}>
           <View style={styles.avatarContainer}>
-            <FontAwesomeIcon icon={faUser} size={26} color='#1e88e5' />
+          <Image source={myAvatar} style={styles.avatar} />
           </View>
           <View style={styles.textContainer}>
-            <Text style={styles.welcomeText}>Chào mừng bạn đến với Tiki!</Text>
+            <Text style={styles.welcomeText}>Huỳnh Thị Thanh Vi</Text>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('LoginComponent');
+                navigation.navigate('SettingComponent');
               }}>
-              <Text style={styles.authText}>Đăng nhập/ Đăng ký</Text>
+              <Text style={styles.authText}>+ thêm Nickname</Text>
             </TouchableOpacity>
           </View>
           <FontAwesomeIcon icon={faAngleRight} size={26} color="#1e88e5" />

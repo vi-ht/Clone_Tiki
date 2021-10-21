@@ -1,15 +1,4 @@
-/* eslint-disable prettier/prettier */
 
-import {
-  faAward,
-  faBookmark,
-  faCartArrowDown,
-  faCogs,
-  faEye,
-  faHeart,
-  faList,
-  faStar,
-} from '@fortawesome/free-solid-svg-icons';
 import icon1 from '../../assets/image/1.jpg';
 import icon2 from '../../assets/image/2.jpg';
 import icon3 from '../../assets/image/3.jpg';

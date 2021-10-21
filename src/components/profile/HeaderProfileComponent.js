@@ -1,9 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
-import {faShoppingCart} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import AvatarComponent from './AvatarComponents';
 import cartIcon from '../../assets/image/cart.png';
 import settingIcon from '../../assets/image/setting.png';
 const width = Dimensions.get('window').width;
