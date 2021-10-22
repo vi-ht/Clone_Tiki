@@ -3,6 +3,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
 import cartIcon from '../../assets/image/cart.png';
 import settingIcon from '../../assets/image/setting.png';
+
 const width = Dimensions.get('window').width;
 
 const HeaderProfile = ({title}) => {

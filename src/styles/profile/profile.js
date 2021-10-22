@@ -163,8 +163,56 @@ const styles = StyleSheet.create({
     height: 65,
     width: 65,
     borderRadius:50,
+  },
+  itemValue:{
+    flex: 1,
+    color: 'gray',
+    paddingLeft: 20,
+    fontSize: 16,
+  },
+  itemSmallContainer1:{
+    backgroundColor: '#fff',
+  },
+  itemSmallContainer2:{
+    backgroundColor: '#fff',
+    width:350,
+  },
+  itemSmallContainer3:{
+    backgroundColor: '#fff',
+  },
+  itemSetting:{
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    alignItems: 'center',
+  },
+  TextContainer:{
+    height:165,
+    backgroundColor: '#fff',
+  },
+  itemNewText:{
+    flex: 1,
+    color: '#1e1e1e',
+    paddingLeft: 20,
+    fontSize: 16,
+    marginTop:19,
+    marginLeft:-5,
+    marginBottom:0,
+  },
+  buttonText:{
+    textAlign:'center',
+    backgroundColor:'#D9D9D9',
+    fontSize: 18,
+    height:40,
+    color:"#949494",
+    borderColor:"#A7A7A7",
+    borderRadius:5,
+    margin:15,
+    paddingTop:7,
+    marginTop:-10,
+  
   }
-
 });
 
 export default styles;

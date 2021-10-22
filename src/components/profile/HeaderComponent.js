@@ -11,12 +11,7 @@ const Header = ({title}) => {
     <View style={styles.headerContainer}>
       <Text style={styles.headerText}> {title} </Text>
       <View style={StyleSheet.cartContainer}>
-        <FontAwesomeIcon
-          icon={faShoppingCart}
-          size={HEADER_ICON_SIZE}
-          color="#fff"
-          style={{paddingLeft: width / 1.6, top: 4}}
-        />
+        
       </View>
     </View>
   );
@@ -34,6 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e88e5',
     justifyContent: 'center',
     paddingLeft: 80,
+    height:60,
   },
   cartContainer: {
     alignItems: 'center',
@@ -41,8 +37,10 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '500',
-    paddingLeft: width / 2.7,
+    marginLeft:-80,
+    marginTop:10,
+    //paddingLeft: width / 2,
   },
 });

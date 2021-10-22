@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import {
+  faUser,
   faAngleRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -14,6 +15,7 @@ import myAvatar from '../../assets/image/vi.jpg';
 
 const ProfileItem = ({ icon, name }) => (
   <View style={styles.itemContainer}>
+    
     <Image source={icon} style={styles.profileIcon} />
     <Text style={styles.itemTitle}>{name}</Text>
     <FontAwesomeIcon icon={faAngleRight} size={26} color="gray" />
@@ -28,7 +30,7 @@ const SectionItem = ({ nameLeft, nameRight, list }) => (
     </View>
     <View style={styles.boxContainer}>
       {list.map((e, index) => (
-          <View style={styles.iconContainer}>
+          <View key={index} style={styles.iconContainer}>
               <Image source={e.iconImg} style={styles.imgIcon} />
           <Text style={styles.iconText}>{e.name}</Text>
       </View>
@@ -49,7 +51,8 @@ const TopItem = ({ img, title, name }) => (
           </View>
 );
 
-const ProfileComponent = ({ navigation }) => {
+const ProfileComponent = ({ navigation, route}) => {
+  console.log(route.params.value);
   return (
     <ScrollView>
     <View style={styles.screenContainer}>
@@ -61,10 +64,10 @@ const ProfileComponent = ({ navigation }) => {
           <Image source={myAvatar} style={styles.avatar} />
           </View>
           <View style={styles.textContainer}>
-            <Text style={styles.welcomeText}>Huỳnh Thị Thanh Vi</Text>
+            <Text style={styles.welcomeText}>{route.params.value}</Text>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate('SettingComponent');
+                navigation.navigate('SettingComponent',{value:`${route.params.value}`});
               }}>
               <Text style={styles.authText}>+ thêm Nickname</Text>
             </TouchableOpacity>

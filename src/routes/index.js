@@ -30,12 +30,14 @@ const Router = () => {
         <Tab.Screen
           name="Profile"
           component={ProfileScreen}
+          initialParams={{value:"vi"}}
           options={{
             tabBarLabel: 'Cá nhân',
             headerShown: false,
             tabBarIcon: ({color}) => (
               <FontAwesomeIcon icon={faUser} size={26} color={color} />
             ),
+            
           }}
         />
         <Tab.Screen
